@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   ViewEncapsulation,
   Output,
   EventEmitter
@@ -16,7 +15,7 @@ import {
   styleUrls: ['./account-login.component.scss'],
   encapsulation : ViewEncapsulation.None
 })
-export class AccountLoginComponent implements OnInit{
+export class AccountLoginComponent{
   @Output()  moveLogin = new EventEmitter();
 
   loginForm : FormGroup;
@@ -33,8 +32,6 @@ export class AccountLoginComponent implements OnInit{
     console.log('Reactive Login Form Data: ')
     console.log(value);
   }
-
-  ngOnInit() {}
 
   moveForgot() : void{
     this.moveLogin.emit({
