@@ -1,0 +1,170 @@
+.main-container img {
+  width: 40%;
+}
+
+#fback {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.register-content, .login-content, .forgot-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  &.register-content input {
+    color: white;
+  }
+}
+
+.register-content {
+  background: #272727;
+}
+
+.login-content, .forgot-content {
+  background: white;
+}
+
+.register-bg {
+  background: #03A9F4 url(assets/img/banner2.png);
+}
+
+.login-bg {
+  background: #03A9F4 url(assets/img/cover.png);
+  background-position: 0 50% !important;
+}
+
+.register-bg, .login-bg {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.bg-text-container {
+  position: absolute;
+  bottom: 0;
+  padding: 0 20px 20px;
+  color: white !important;
+  text-align: right;
+  width: 100%;
+}
+
+.login-bg .bg-text-container {
+  text-align: left;
+}
+
+.register-content, .login-bg {
+  left: 0;
+}
+
+.login-content, .register-bg {
+  right: 0;
+}
+
+h2 img {
+  width: 34px !important;
+  margin-right: 4px;
+}
+
+.card-content.switcher-box {
+  width: 50%;
+  max-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-left: 50%;
+  position: absolute;
+  padding: 0;
+  border: 1px solid #4a86c5;
+  border-radius: 3px;
+
+  .inner-box {
+    width: 300%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    left: -100%;
+
+    .left-item, .right-item, .center-item {
+      width: 33.333333%;
+      height: 100%;
+      top: 0;
+      position: absolute;
+    }
+
+    .left-item {
+      background: #272727;
+      left: 0;
+    }
+
+    .center-item {
+      background: #F9F9F9;
+      left:33.333333%
+    }
+
+    .right-item {
+      background: #F9F9F9;
+      right: 0;
+    }
+  }
+}
+
+#moveRegister, #moveLogin, #moveForgot, #moveRegister2, #moveLogin2 {
+  margin:0 10px;
+}
+
+.card {
+  margin: 0;
+}
+
+@media(max-width:992px) {
+  .card-content.switcher-box {
+    width: 100%;
+    margin-left: 0;
+
+    .inner-box .right-item, .inner-box .left-item, .inner-box .center-item {
+      width: 33.3333% !important;
+    }
+  }
+
+  html body .main-container img {
+    width: 60%;
+  }
+
+  .smart-form-btn{
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+}
+
+
+.btn:hover, .btn-large:hover,button:focus, .btn:focus{
+  background: #4a86c5;
+}
+
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #4a86c5;
+  box-shadow: 0 1px 0 0 #4a86c5;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+  color: #4a86c5;
+}
+
+[type="checkbox"]:checked+label:before {
+  border-right: 2px solid #4a86c5;
+  border-bottom: 2px solid #4a86c5;
+
+}
+
+[type="checkbox"].filled-in:checked+label:after {
+  border: 2px solid #4a86c5;
+  background-color: #4a86c5;
+}
+
+.toast {
+  background-color: #ea454b;
+}

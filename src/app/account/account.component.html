@@ -1,0 +1,42 @@
+  <div class="container valign main-container">
+    <p class="center-align margin-bottom-50">
+      <a href="#"><img src="assets/img/logo_standard.png" /></a>
+    </p>
+    <div class="row" style="height: 100%">
+      <div class="col s12 offset-s0 offset-l1 l10 text-blue darken-2" style="height: 100%">
+        <div class="card" style="height: 100%">
+          <div id="fback" class="hide-on-med-and-down">
+            <div class="register-bg">
+              <div class="system-overlay"></div>
+              <div class="bg-text-container">
+                <h1 class="white-text">
+                  <b>ZOBACZ</b>
+                </h1>
+                <h3 class="white-text">CO SPRAWIA, ŻE WARTO<br />SKORZYSTAĆ ZE <b>smartPARK</b></h3>
+              </div>
+            </div>
+            <div class="login-bg">
+              <div class="home-overlay"></div>
+              <div class="bg-text-container align-left">
+                <h4 class="white-text">
+                  wykup abonament - zapłać zbliżeniowo
+                </h4>
+                <h2 class="white-text" style="margin:5px 0"><b>UŁATWIAMY ŻYCIE</b></h2>
+                <h4 class="white-text">
+                  otwieraj bramę smartfonem
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="card-content switcher-box" data-current-form="login-form" id="switcher-box" [@switcherBox]="switcherState">
+            <div class="inner-box" [@innerBox]="switcherState">
+              <app-account-register (moveRegister)="switcherStateChanged($event);"></app-account-register>
+              <app-account-login (moveLogin)="switcherStateChanged($event);"></app-account-login>
+              <app-account-forgot (moveForgot)="switcherStateChanged($event);"></app-account-forgot>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

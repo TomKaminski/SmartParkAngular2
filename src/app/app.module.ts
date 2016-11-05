@@ -4,10 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AccountComponent } from './account/account.component';
+import { AccountLoginComponent } from './account-login/account-login.component';
+import { AccountRegisterComponent } from './account-register/account-register.component';
+import { AccountForgotComponent } from './account-forgot/account-forgot.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccountComponent,
+    AccountLoginComponent,
+    AccountRegisterComponent,
+    AccountForgotComponent
   ],
   imports: [
     BrowserModule,
