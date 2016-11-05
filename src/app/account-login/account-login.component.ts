@@ -5,6 +5,10 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup
+} from '@angular/forms';
 
 @Component({
   selector: 'app-account-login',
@@ -15,7 +19,20 @@ import {
 export class AccountLoginComponent implements OnInit{
   @Output()  moveLogin = new EventEmitter();
 
-  constructor() {}
+  loginForm : FormGroup;
+
+  constructor(formBuilder: FormBuilder) {
+    this.loginForm = formBuilder.group({
+      'email' : '',
+      'password' : '',
+      'rememberme' : false
+    })
+  }
+
+  submitForm(value: any):void{
+    console.log('Reactive Login Form Data: ')
+    console.log(value);
+  }
 
   ngOnInit() {}
 

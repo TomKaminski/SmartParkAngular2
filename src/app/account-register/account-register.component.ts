@@ -1,4 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup
+} from '@angular/forms';
 
 @Component({
   selector: 'app-account-register',
@@ -6,12 +10,24 @@ import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@ang
   styleUrls: ['./account-register.component.scss'],
   encapsulation : ViewEncapsulation.None
 })
-export class AccountRegisterComponent implements OnInit {
+export class AccountRegisterComponent {
   @Output()  moveRegister = new EventEmitter();
+  registerForm : FormGroup;
 
-  constructor() {}
+  constructor(formBuilder: FormBuilder) {
+    this.registerForm = formBuilder.group({
+      'email' : '',
+      'password' : '',
+      'repeatPassword' : '',
+      'name':'',
+      'lastName':''
+    })
+  }
 
-  ngOnInit() {}
+  submitForm(value: any):void{
+    console.log('Reactive register Form Data: ')
+    console.log(value);
+  }
 
   moveLogin() : void{
     this.moveRegister.emit({

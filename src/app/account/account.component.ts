@@ -56,7 +56,7 @@ declare var $:any;
   ]
 })
 export class AccountComponent implements OnInit {
-  private switcherState:string;
+  private switcherState : string;
 
   constructor() {
     this.switcherState = window.innerWidth <= 992 ? 'login-mobile' : 'login';
@@ -71,7 +71,6 @@ export class AccountComponent implements OnInit {
     }
 
     function setStatus():void {
-      debugger;
       var windowWidth = window.innerWidth;
       if (windowWidth > 992) {
         $('.card-content.switcher-box').css("margin-left", "50%");

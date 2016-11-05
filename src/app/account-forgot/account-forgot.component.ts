@@ -1,4 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup
+} from '@angular/forms';
 
 @Component({
   selector: 'app-account-forgot',
@@ -6,12 +10,20 @@ import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@ang
   styleUrls: ['./account-forgot.component.scss'],
   encapsulation : ViewEncapsulation.None
 })
-export class AccountForgotComponent implements OnInit{
-  @Output()  moveForgot = new EventEmitter();
+export class AccountForgotComponent{
+  @Output() moveForgot = new EventEmitter();
+  forgotForm : FormGroup;
 
-  constructor() {}
+  constructor(formBuilder: FormBuilder) {
+    this.forgotForm = formBuilder.group({
+      'email' : ''
+    })
+  }
 
-  ngOnInit() {}
+  submitForm(value: any):void{
+    console.log('Reactive Forgot Form Data: ')
+    console.log(value);
+  }
 
   moveLogin() : void{
     this.moveForgot.emit({
