@@ -1,16 +1,3 @@
-html {
-  height: 100%;
-
-  body {
-    min-height: 100%;
-    height:100%;
-
-    app-account{
-      height:100%;
-    }
-  }
-}
-
 /*Main scss file for all views, create other scss for specific views.*/
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
