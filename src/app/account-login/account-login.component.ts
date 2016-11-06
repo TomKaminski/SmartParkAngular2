@@ -10,17 +10,20 @@ import { GlobalValidators } from '../common/global-validators'
 })
 export class AccountLoginComponent{
   @Output()  moveLogin = new EventEmitter();
+  visibleLoader : boolean;
 
   loginForm : FormGroup;
 
   constructor(formBuilder: FormBuilder) {
+    this.visibleLoader = false;
     this.loginForm = formBuilder.group({
       'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
       'password' : ['', Validators.compose([Validators.required, Validators.minLength(8)])]
     })
   }
 
-  submitForm(value: any):void{
+  submitForm(value: any) : void{
+    this.visibleLoader = !this.visibleLoader;
     console.log('Reactive Login Form Data: ')
     console.log(value);
   }

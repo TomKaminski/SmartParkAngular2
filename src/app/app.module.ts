@@ -8,6 +8,7 @@ import { AccountComponent } from './account/account.component';
 import { AccountLoginComponent } from './account-login/account-login.component';
 import { AccountRegisterComponent } from './account-register/account-register.component';
 import { AccountForgotComponent } from './account-forgot/account-forgot.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AccountForgotComponent } from './account-forgot/account-forgot.componen
     AccountComponent,
     AccountLoginComponent,
     AccountRegisterComponent,
-    AccountForgotComponent
+    AccountForgotComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

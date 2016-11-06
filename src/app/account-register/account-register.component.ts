@@ -12,6 +12,7 @@ export class AccountRegisterComponent {
   @Output()  moveRegister = new EventEmitter();
   registerForm : FormGroup;
   passwordGroup : FormGroup;
+  visibleLoader : boolean = false;
 
   constructor(formBuilder: FormBuilder) {
     this.registerForm = formBuilder.group({
@@ -25,7 +26,8 @@ export class AccountRegisterComponent {
 
   
 
-  submitForm(value: any):void{
+  submitForm(value: any) : void{
+    this.visibleLoader = !this.visibleLoader;
     console.log('Reactive register Form Data: ')
     console.log(value);
   }
