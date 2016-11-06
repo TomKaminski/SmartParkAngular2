@@ -46,7 +46,7 @@
               <a href="#" id="moveForgot" class="smart-blue smart-move-btn" (click)="moveForgot()">zapomniałem <b>hasło</b></a>
             </div>
           </div>
-          <app-loader></app-loader>
+          <app-loader [hidden]="!visibleLoader"></app-loader>
         </form>
       </div>
     </div>

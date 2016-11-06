@@ -12,9 +12,10 @@ export class AccountRegisterComponent {
   @Output()  moveRegister = new EventEmitter();
   registerForm : FormGroup;
   passwordGroup : FormGroup;
-  visibleLoader : boolean = false;
+  visibleLoader : boolean;;
 
   constructor(formBuilder: FormBuilder) {
+    this.visibleLoader = false;
     this.registerForm = formBuilder.group({
       'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
       'password' : ['', Validators.compose([Validators.required, Validators.minLength(8)])],
