@@ -1,13 +1,6 @@
-import {
-  Component,
-  ViewEncapsulation,
-  Output,
-  EventEmitter
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup
-} from '@angular/forms';
+import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GlobalValidators } from '../common/global-validators'
 
 @Component({
   selector: 'app-account-login',
@@ -22,9 +15,8 @@ export class AccountLoginComponent{
 
   constructor(formBuilder: FormBuilder) {
     this.loginForm = formBuilder.group({
-      'email' : '',
-      'password' : '',
-      'rememberme' : false
+      'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
+      'password' : ['', Validators.compose([Validators.required, Validators.minLength(8)])]
     })
   }
 

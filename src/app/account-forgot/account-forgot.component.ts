@@ -1,8 +1,6 @@
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GlobalValidators } from '../common/global-validators'
 
 @Component({
   selector: 'app-account-forgot',
@@ -12,11 +10,12 @@ import {
 })
 export class AccountForgotComponent{
   @Output() moveForgot = new EventEmitter();
+
   forgotForm : FormGroup;
 
   constructor(formBuilder: FormBuilder) {
     this.forgotForm = formBuilder.group({
-      'email' : ''
+      'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
     })
   }
 

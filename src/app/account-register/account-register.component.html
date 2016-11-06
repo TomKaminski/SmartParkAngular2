@@ -6,43 +6,64 @@
           <img src="assets/img/lock_logo.png" class="valign"/>REJESTRACJA
         </h2>
         <h5 class="smart-grey">Jeżeli nie posiadasz jeszcze konta, zarejestruj się w kilku szybkich krokach!</h5>
-        <form id="register-form" [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm.value)">
+        <form id="register-form" novalidate [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
           <div class="row">
             <div class="col s12">
               <div class="input-field">
-                <input type="text" name="register_email" id="register_email" class="validate" [formControl]="registerForm.controls['email']"/>
+                <input type="text" name="register_email" id="register_email" [formControl]="registerForm.controls.email"/>
                 <label for="register_email">Email</label>
+                <span class="field-validation-error" *ngIf="!registerForm.controls.email.valid && registerForm.controls.email.touched">
+                  <span *ngIf="registerForm.controls.email.errors?.incorrectMailFormat">To nie jest poprawny adres email.</span>
+                  <span *ngIf="registerForm.controls.email.errors?.required">Adres email jest wymagany.</span>
+                </span>
               </div>
             </div>
             <div class="col s12">
               <div class="input-field">
-                <input type="password" name="register_password" id="register_password" class="validate" [formControl]="registerForm.controls['password']"/>
+                <input type="password" name="register_password" id="register_password" [formControl]="registerForm.controls.password"/>
                 <label for="register_password">Hasło</label>
+                <span class="field-validation-error" *ngIf="!registerForm.controls.password.valid && registerForm.controls.password.touched">
+                  <span *ngIf="registerForm.controls.password.errors?.minlength">Hasło musi być długie na minimum 8 znaków.</span>
+                  <span *ngIf="registerForm.controls.password.errors?.required">Hasło jest wymagane.</span>
+                </span>
               </div>
             </div>
             <div class="col s12">
               <div class="input-field">
-                <input type="password" name="register_repeatpassword" id="register_repeatpassword" class="validate" [formControl]="registerForm.controls['repeatPassword']"/>
+                <input type="password" name="register_repeatpassword" id="register_repeatpassword" 
+                  [formControl]="registerForm.controls.confirm" [ngClass]="{'input-validation-error': registerForm.errors?.notEqual}"/>
                 <label for="register_repeatpassword">Powtórz hasło</label>
+                <span class="field-validation-error" *ngIf="(!registerForm.controls.confirm.valid && registerForm.controls.confirm.touched) || (registerForm.errors?.notEqual)">
+                  <span *ngIf="registerForm.errors?.notEqual">Hasła się nie zgadzają.</span>
+                  <span *ngIf="registerForm.controls.confirm.errors?.required">Musisz potwierdzić swoje hasło.</span>
+                </span>
               </div>
             </div>
             <div class="col s12">
               <div class="input-field">
-                <input type="text" name="register_name" class="validate" id="register_name" [formControl]="registerForm.controls['name']"/>
+                <input type="text" name="register_name" id="register_name" [formControl]="registerForm.controls.name"/>
                 <label for="register_name">Imię</label>
+                <span class="field-validation-error" *ngIf="!registerForm.controls.name.valid && registerForm.controls.name.touched">
+                  <span *ngIf="registerForm.controls.name.errors?.minlength">Imię musi być długie na minimum 2 znaki.</span>
+                  <span *ngIf="registerForm.controls.name.errors?.required">Imię jest wymagane.</span>
+                </span>
               </div>
             </div>
             <div class="col s12">
               <div class="input-field">
-                <input type="text" class="validate" id="register_lastname" name="register_lastname" [formControl]="registerForm.controls['lastName']"/>
+                <input type="text" id="register_lastname" name="register_lastname" [formControl]="registerForm.controls.lastName"/>
                 <label for="register_lastname">Nazwisko</label>
+                <span class="field-validation-error" *ngIf="!registerForm.controls.lastName.valid && registerForm.controls.lastName.touched">
+                  <span *ngIf="registerForm.controls.lastName.errors?.minlength">Nazwisko musi być długie na minimum 2 znaki.</span>
+                  <span *ngIf="registerForm.controls.lastName.errors?.required">Nazwisko jest wymagane.</span>
+                </span>
               </div>
             </div>
           </div>
           <div class="row right-align margin-bottom-25">
             <div class="col s12">
               <a href="#" id="moveLogin" class="smart-blue smart-move-btn" (click)="moveLogin()"><b>ZALOGUJ</b></a>
-              <button class="btn waves-effect waves-light smart-blue-bg smart-form-btn" data-form-id="register-form"
+              <button class="btn waves-effect waves-light smart-blue-bg smart-form-btn"
                       name="action">
                 <b>ZAREJESTRUJ</b>
                 <i class="material-icons right">send</i>

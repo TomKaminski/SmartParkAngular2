@@ -10,28 +10,30 @@
           <div class="row">
             <div class="col s12">
               <div class="input-field">
-                <input type="text" name="Email" id="Email" [formControl]="loginForm.controls['email']"/>
+                <input type="text" name="Email" id="Email" [formControl]="loginForm.controls.email"/>
                 <label for="Email">Email</label>
+                <span class="field-validation-error" *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.touched">
+                  <span *ngIf="loginForm.controls.email.errors?.incorrectMailFormat">To nie jest poprawny adres email.</span>
+                  <span *ngIf="loginForm.controls.email.errors?.required">Adres email jest wymagany.</span>
+                </span>
               </div>
             </div>
             <div class="col s12">
               <div class="input-field">
-                <input type="password" name="Password" id="Password" [formControl]="loginForm.controls['password']"/>
+                <input type="password" name="Password" id="Password" [formControl]="loginForm.controls.password"/>
                 <label for="Password">Hasło</label>
+                <span class="field-validation-error" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.touched">
+                  <span *ngIf="loginForm.controls.password.errors?.minlength">Hasło musi być długie na minimum 8 znaków.</span>
+                  <span *ngIf="loginForm.controls.password.errors?.required">Hasło jest wymagane.</span>
+                </span>
               </div>
-            </div>
-            <div class="col s12">
-              <p>
-                <input type="checkbox" name="RememberMe" id="RememberMe" class="filled-in" [formControl]="loginForm.controls['rememberme']"/>
-                <label for="RememberMe">Zapamiętaj mnie</label>
-              </p>
             </div>
           </div>
           <br />
           <div class="row right-align" style="margin-bottom: 0">
             <div class="col s12">
               <a href="#" id="moveRegister" class="smart-blue smart-move-btn" (click)="moveRegister()"><b>ZAREJESTRUJ</b></a>
-              <button class="btn smart-blue-bg smart-form-btn btn waves-effect waves-light" data-form-id="login-form">
+              <button class="btn smart-blue-bg smart-form-btn btn waves-effect waves-light" [disabled]="!loginForm.valid">
                 <b>Zaloguj</b>
                 <i class="material-icons right">send</i>
               </button>

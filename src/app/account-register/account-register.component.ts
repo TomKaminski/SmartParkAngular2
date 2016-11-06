@@ -1,8 +1,6 @@
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GlobalValidators } from '../common/global-validators'
 
 @Component({
   selector: 'app-account-register',
@@ -13,16 +11,19 @@ import {
 export class AccountRegisterComponent {
   @Output()  moveRegister = new EventEmitter();
   registerForm : FormGroup;
+  passwordGroup : FormGroup;
 
   constructor(formBuilder: FormBuilder) {
     this.registerForm = formBuilder.group({
-      'email' : '',
-      'password' : '',
-      'repeatPassword' : '',
-      'name':'',
-      'lastName':''
-    })
+      'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
+      'password' : ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+      'confirm' :  ['', Validators.required],
+      'name': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
+      'lastName': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
+    }, { validator: GlobalValidators.matchPassword });
   }
+
+  
 
   submitForm(value: any):void{
     console.log('Reactive register Form Data: ')
