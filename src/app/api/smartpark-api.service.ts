@@ -21,24 +21,29 @@ export class SmartparkApiService implements ISmartparkApiService {
 
   constructor(private http: Http, private localStorage: SmartparkAuthService) { }
 
-  Get(apiSmartRequest: SmartRequest, funcThen, params?: URLSearchParams): Promise<SmartJsonResult> {
+  Get(apiSmartRequest: SmartRequest, funcThen: Function, funcError: Function, params?: URLSearchParams): Promise<SmartJsonResult> {
     return this.http.get(apiSmartRequest.Url, this.CreateGetRequestOptions(params != null ? params : new URLSearchParams(), apiSmartRequest.MustAuthorize))
       .toPromise()
       .then(x => {
         var body = this.ExtractResponseData(x);
         funcThen(body);
-      })
-      .catch(this.HandleError);
+      }).catch((error: Response | any) => {
+        funcError();
+        this.HandleError(error)
+      });
   }
 
-  Post(apiSmartRequest: SmartRequest, funcThen, data?: any): Promise<SmartJsonResult> {
+  Post(apiSmartRequest: SmartRequest, funcThen: Function, funcError: Function, data?: any): Promise<SmartJsonResult> {
     return this.http.post(apiSmartRequest.Url, data, this.CreatePostRequestOptions(apiSmartRequest.MustAuthorize, data))
       .toPromise()
       .then(x => {
         var body = this.ExtractResponseData(x);
         funcThen(body);
       })
-      .catch(this.HandleError);
+      .catch((error: Response | any) => {
+        funcError();
+        this.HandleError(error)
+      });
   }
 
   public ApiEndpoints: any = {
@@ -86,8 +91,8 @@ export class SmartparkApiService implements ISmartparkApiService {
 }
 
 interface ISmartparkApiService {
-  Get(endPointAddress: SmartRequest, funcThen): Promise<SmartJsonResult>;
-  Post(endPointAddress: SmartRequest, funcThen): Promise<SmartJsonResult>;
-  Get(endPointAddress: SmartRequest, funcThen, params?: URLSearchParams): Promise<SmartJsonResult>;
-  Post(endPointAddress: SmartRequest, funcThen, params?: URLSearchParams): Promise<SmartJsonResult>;
+  Get(endPointAddress: SmartRequest, funcThen: Function, funcError: Function): Promise<SmartJsonResult>;
+  Post(endPointAddress: SmartRequest, funcThen: Function, funcError: Function): Promise<SmartJsonResult>;
+  Get(endPointAddress: SmartRequest, funcThen: Function, funcError: Function, params?: URLSearchParams): Promise<SmartJsonResult>;
+  Post(endPointAddress: SmartRequest, funcThen: Function, funcError: Function, params?: URLSearchParams): Promise<SmartJsonResult>;
 }

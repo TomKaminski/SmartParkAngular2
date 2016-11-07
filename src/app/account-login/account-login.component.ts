@@ -1,4 +1,5 @@
 import { SmartparkApiService } from './../api/smartpark-api.service';
+import { SmartparkAuthService } from './../auth/smartpark-auth.service';
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidators } from '../common/global-validators'
@@ -15,7 +16,7 @@ export class AccountLoginComponent {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private apiService: SmartparkApiService) {
+  constructor(private formBuilder: FormBuilder, private apiService: SmartparkApiService, private authService: SmartparkAuthService) {
     this.visibleLoader = false;
     this.loginForm = formBuilder.group({
       'email': ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
@@ -29,6 +30,15 @@ export class AccountLoginComponent {
       (body) => {
         this.visibleLoader = false;
         console.log(body);
+        if (body.IsValid == true) {
+          this.authService.Save(body.Result.token);
+        } else {
+          //display error
+        }
+      },
+      () => {
+        this.visibleLoader = false;
+        alert('ERROR!')
       },
       {
         Password: value.password,
