@@ -1,3 +1,4 @@
+import { SmartparkApiService } from './../api/smartpark-api.service';
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidators } from '../common/global-validators'
@@ -6,35 +7,42 @@ import { GlobalValidators } from '../common/global-validators'
   selector: 'app-account-login',
   templateUrl: './account-login.component.html',
   styleUrls: ['./account-login.component.scss'],
-  encapsulation : ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
-export class AccountLoginComponent{
-  @Output()  moveLogin = new EventEmitter();
-  visibleLoader : boolean;
+export class AccountLoginComponent {
+  @Output() moveLogin = new EventEmitter();
+  visibleLoader: boolean;
 
-  loginForm : FormGroup;
+  loginForm: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private apiService: SmartparkApiService) {
     this.visibleLoader = false;
     this.loginForm = formBuilder.group({
-      'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
-      'password' : ['', Validators.compose([Validators.required, Validators.minLength(8)])]
+      'email': ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(8)])]
     })
   }
 
-  submitForm(value: any) : void{
-    this.visibleLoader = !this.visibleLoader;
-    console.log('Reactive Login Form Data: ')
-    console.log(value);
+  submitForm(value: any): void {
+    this.visibleLoader = true;
+    var result = this.apiService.Post(this.apiService.ApiEndpoints.loginWeb,
+      (body) => {
+        this.visibleLoader = false;
+        console.log(body);
+      },
+      {
+        Password: value.password,
+        UserName: value.email
+      });
   }
 
-  moveForgot() : void{
+  moveForgot(): void {
     this.moveLogin.emit({
       value: window.innerWidth <= 992 ? 'forgot-mobile' : 'forgot'
     })
   }
 
-  moveRegister() : void{
+  moveRegister(): void {
     this.moveLogin.emit({
       value: 'register'
     })

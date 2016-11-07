@@ -33,7 +33,7 @@
           <div class="row right-align" style="margin-bottom: 0">
             <div class="col s12">
               <a href="#" id="moveRegister" class="smart-blue smart-move-btn" (click)="moveRegister()"><b>ZAREJESTRUJ</b></a>
-              <button class="btn smart-blue-bg smart-form-btn btn waves-effect waves-light" [disabled]="!loginForm.valid">
+              <button class="btn smart-blue-bg smart-form-btn btn waves-effect waves-light" [disabled]="!loginForm.valid || visibleLoader">
                 <b>Zaloguj</b>
                 <i class="material-icons right">send</i>
               </button>

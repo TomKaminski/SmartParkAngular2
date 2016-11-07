@@ -10,6 +10,10 @@ import { AccountRegisterComponent } from './account-register/account-register.co
 import { AccountForgotComponent } from './account-forgot/account-forgot.component';
 import { LoaderComponent } from './loader/loader.component';
 
+import { SmartparkApiService } from './api/smartpark-api.service'
+import { SmartparkAuthService } from './auth/smartpark-auth.service'
+import { LocalstorageService } from './common/localstorage.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,7 @@ import { LoaderComponent } from './loader/loader.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LocalstorageService, SmartparkAuthService, SmartparkApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
