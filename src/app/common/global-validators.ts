@@ -13,7 +13,7 @@ export class GlobalValidators {
 
     static matchPassword(group : FormGroup): ValidationResult {
       let password = group.controls['password'];
-      let confirm = group.controls['confirm'];
+      let confirm = group.controls['repeatpassword'];
 
       // Don't kick in until user touches both fields   
       if (password.pristine || confirm.pristine) {

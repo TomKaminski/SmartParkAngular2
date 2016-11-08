@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ToastHelper } from '../common/toast-helper';
 import { SmartparkApiService } from './../api/smartpark-api.service';
 import { SmartparkAuthService } from './../auth/smartpark-auth.service';
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
@@ -16,7 +18,7 @@ export class AccountLoginComponent {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private apiService: SmartparkApiService, private authService: SmartparkAuthService) {
+  constructor(private formBuilder: FormBuilder, private apiService: SmartparkApiService, private authService: SmartparkAuthService, private router: Router) {
     this.visibleLoader = false;
     this.loginForm = formBuilder.group({
       'email': ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
@@ -29,21 +31,14 @@ export class AccountLoginComponent {
     var result = this.apiService.Post(this.apiService.ApiEndpoints.loginWeb,
       (body) => {
         this.visibleLoader = false;
-        console.log(body);
         if (body.IsValid == true) {
-          this.authService.Save(body.Result.token);
-        } else {
-          //display error
+          this.authService.Save(body.Result.access_token);
+          this.router.navigate(['portal']);
         }
       },
-      () => {
+      (response) => {
         this.visibleLoader = false;
-        alert('ERROR!')
-      },
-      {
-        Password: value.password,
-        UserName: value.email
-      });
+      }, value);
   }
 
   moveForgot(): void {

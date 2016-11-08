@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LocalstorageService {
 
-  localStorageKey: string = 'smartParkAppJwtToken';
+  localStorageKey: string = 'id_token';
 
   constructor() { }
 

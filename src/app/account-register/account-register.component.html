@@ -6,7 +6,7 @@
           <img src="assets/img/lock_logo.png" class="valign"/>REJESTRACJA
         </h2>
         <h5 class="smart-grey">Jeżeli nie posiadasz jeszcze konta, zarejestruj się w kilku szybkich krokach!</h5>
-        <form id="register-form" novalidate [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+        <form id="register-form" novalidate [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm.value)">
           <div class="row">
             <div class="col s12">
               <div class="input-field">
@@ -31,11 +31,11 @@
             <div class="col s12">
               <div class="input-field">
                 <input type="password" name="register_repeatpassword" id="register_repeatpassword" 
-                  [formControl]="registerForm.controls.confirm" [ngClass]="{'input-validation-error': registerForm.errors?.notEqual}"/>
+                  [formControl]="registerForm.controls.repeatpassword" [ngClass]="{'input-validation-error': registerForm.errors?.notEqual}"/>
                 <label for="register_repeatpassword">Powtórz hasło</label>
-                <span class="field-validation-error" *ngIf="(!registerForm.controls.confirm.valid && registerForm.controls.confirm.touched) || (registerForm.errors?.notEqual)">
+                <span class="field-validation-error" *ngIf="(!registerForm.controls.repeatpassword.valid && registerForm.controls.repeatpassword.touched) || (registerForm.errors?.notEqual)">
                   <span *ngIf="registerForm.errors?.notEqual">Hasła się nie zgadzają.</span>
-                  <span *ngIf="registerForm.controls.confirm.errors?.required">Musisz potwierdzić swoje hasło.</span>
+                  <span *ngIf="registerForm.controls.repeatpassword.errors?.required">Musisz potwierdzić swoje hasło.</span>
                 </span>
               </div>
             </div>

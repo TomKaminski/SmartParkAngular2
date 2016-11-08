@@ -87,6 +87,5 @@ export class AccountComponent implements OnInit {
 
   switcherStateChanged(event) {
     this.switcherState = event.value;
-    console.log(this.switcherState);
   }
 }

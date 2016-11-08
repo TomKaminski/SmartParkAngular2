@@ -1,3 +1,6 @@
+import { ToastHelper } from '../common/toast-helper';
+import { SmartparkApiService } from './../api/smartpark-api.service';
+import { SmartparkAuthService } from './../auth/smartpark-auth.service';
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidators } from '../common/global-validators'
@@ -14,23 +17,26 @@ export class AccountRegisterComponent {
   passwordGroup : FormGroup;
   visibleLoader : boolean;;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private apiService: SmartparkApiService, private authService: SmartparkAuthService) {
     this.visibleLoader = false;
     this.registerForm = formBuilder.group({
       'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
       'password' : ['', Validators.compose([Validators.required, Validators.minLength(8)])],
-      'confirm' :  ['', Validators.required],
+      'repeatpassword' :  ['', Validators.required],
       'name': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'lastName': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
     }, { validator: GlobalValidators.matchPassword });
   }
 
-  
-
-  submitForm(value: any) : void{
-    this.visibleLoader = !this.visibleLoader;
-    console.log('Reactive register Form Data: ')
-    console.log(value);
+  submitForm(value: any) : void {
+    this.visibleLoader = true;
+    var result = this.apiService.Post(this.apiService.ApiEndpoints.register,
+      (body) => {
+        this.visibleLoader = false;
+      },
+      (response) => {
+        this.visibleLoader = false;
+      }, value);
   }
 
   moveLogin() : void{
