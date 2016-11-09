@@ -27,13 +27,13 @@ export class SmartparkApiService implements ISmartparkApiService {
       .toPromise()
       .then(x => {
         var body = this.ExtractResponseData(x);
-        this.DisplayToasts(body.SuccessNotifications, true);
+        this.DisplayToasts(body.successNotifications, true);
         if (funcThen != null) {
           funcThen(body);
         }
       }).catch((error: Response | any) => {
         var body = this.ExtractResponseData(error);
-        this.DisplayToasts(body.ValidationErrors, true);
+        this.DisplayToasts(body.validationErrors, true);
         if (funcError != null) {
           funcError(body);
         }
@@ -46,14 +46,14 @@ export class SmartparkApiService implements ISmartparkApiService {
       .toPromise()
       .then(x => {
         var body = this.ExtractResponseData(x);
-        this.DisplayToasts(body.SuccessNotifications, true);
+        this.DisplayToasts(body.successNotifications, true);
         if (funcThen != null) {
           funcThen(body);
         }
       })
       .catch((error: Response | any) => {
         var body = this.ExtractResponseData(error);
-        this.DisplayToasts(body.ValidationErrors, true);
+        this.DisplayToasts(body.validationErrors, true);
         if (funcError != null) {
           funcError(body);
         }

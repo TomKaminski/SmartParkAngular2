@@ -20,6 +20,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { provideAuth } from 'angular2-jwt';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { PortalHeaderComponent } from './portal-header/portal-header.component';
+import { PortalInnerHeaderComponent } from './portal-inner-header/portal-inner-header.component';
+import { PortalSidebarComponent } from './portal-sidebar/portal-sidebar.component';
+import { PortalSidebarAccprofileComponent } from './portal-sidebar-accprofile/portal-sidebar-accprofile.component';
+import { PortalSidemenuComponent } from './portal-sidemenu/portal-sidemenu.component';
+import { PortalSidemenuItemComponent } from './portal-sidemenu-item/portal-sidemenu-item.component';
+import { PortalMainContentComponent } from './portal-main-content/portal-main-content.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,14 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     LoaderComponent,
     PortalMainComponent,
     PageNotFoundComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    PortalHeaderComponent,
+    PortalInnerHeaderComponent,
+    PortalSidebarComponent,
+    PortalSidebarAccprofileComponent,
+    PortalSidemenuComponent,
+    PortalSidemenuItemComponent,
+    PortalMainContentComponent
   ],
   imports: [
     BrowserModule,
