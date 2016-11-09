@@ -31,8 +31,8 @@ export class AccountLoginComponent {
     var result = this.apiService.Post(this.apiService.ApiEndpoints.loginWeb,
       (body) => {
         this.visibleLoader = false;
-        if (body.IsValid == true) {
-          this.authService.Save(body.Result.access_token);
+        if (body.isValid == true) {
+          this.authService.Save(body.result.access_token);
           this.router.navigate(['portal']);
         }
       },

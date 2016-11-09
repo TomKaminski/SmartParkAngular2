@@ -1,0 +1,153 @@
+/*----------------------------------------
+    Cards
+------------------------------------------*/
+
+.card {
+	overflow:hidden;
+}
+#card-stats {
+	.card-content {
+		text-align: center;
+	}
+	.card-stats-title {
+		font-size: 1.2rem;
+		i {
+			font-size: 1.2rem;
+		}
+	}
+	.card-stats-compare {
+		font-size: 1.0rem;
+		i {
+			position: relative;
+			top: 5px;
+		}
+	}
+	.card-stats-number {
+		font-size: 1.8rem;
+		line-height: 2.0rem;
+		margin: 0.2rem 0 0.2rem 0;
+		font-weight: 500;
+	}
+	.card {
+		.card-content {
+			padding: 10px 14px;
+            h4{
+
+            }
+		}
+		.card-action {
+			padding: 5px 14px;
+            
+		}
+    
+	}
+}
+/* alert card */
+#card-alert {
+	i {
+		font-size: 20px;
+		position: relative;
+		top: 2px;
+	}
+	.alert-circle {
+		display: inline-block;
+		width: 40px;
+		white-space: nowrap;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 1000px;
+		vertical-align: bottom;
+		position: relative;
+		top: -5px;
+		left: -2px;
+	}
+	.single-alert {
+		line-height: 42px;
+	}
+	button {
+		background: none;
+		border: none;
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		font-size: 20px;
+		color: $white;
+	}
+	.card .card-content {
+		padding: 20px 40px 20px 20px;
+	}
+	.card-action i {
+		top: 0;
+		margin: 0;
+	}
+}
+
+/* work card */
+
+#work-collections {
+	.collection-header {
+		font-size: 1.14rem;
+		font-weight: 500;
+	}
+	p {
+		&.collections-title {
+			font-size: 1.0rem;
+			padding: 0;
+			margin: 0;
+			font-weight: 500;
+		}
+		&.collections-content {
+			font-size: 0.9rem;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+		}
+	}
+	.collection-item.avatar {
+		height: auto;
+		padding-top: 22px;
+	}
+}
+
+#message-card {
+    background: white;
+    input{
+        border-color: white !important;
+    }
+    label{
+        color: white;
+    }
+	.message-card-title {
+		margin: 0;
+		font-weight: 300;
+	}
+	.message-state {
+		padding-bottom: 15px;
+	}
+	.message-state-wrapper {
+		margin: 0 0 100px 0 !important;
+	}
+	.card-header .card-title {
+		padding: 20px;
+	}
+}
+
+#weather-card {
+    background: #4b85c5;
+
+	.weather-state {
+		padding-bottom: 15px;
+	}
+	
+	.weather-state-wrapper {
+		margin: 0 0 100px 0 !important;
+	}
+	.card-header .card-title {
+		padding: 20px;
+	}
+}
+
+
+.card-move-up .move-up {
+	padding: 20px;
+}
+

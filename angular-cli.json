@@ -18,8 +18,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "reset.scss",
-        "../node_modules/materialize-css/dist/css/materialize.css",
+        "dashboard-styles/dashboard.scss",
         "styles.scss"
       ],
       "scripts": [

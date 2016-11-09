@@ -27,6 +27,7 @@ import { PortalSidebarAccprofileComponent } from './portal-sidebar-accprofile/po
 import { PortalSidemenuComponent } from './portal-sidemenu/portal-sidemenu.component';
 import { PortalSidemenuItemComponent } from './portal-sidemenu-item/portal-sidemenu-item.component';
 import { PortalMainContentComponent } from './portal-main-content/portal-main-content.component';
+import { PortalFooterComponent } from './portal-footer/portal-footer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PortalMainContentComponent } from './portal-main-content/portal-main-co
     PortalSidebarAccprofileComponent,
     PortalSidemenuComponent,
     PortalSidemenuItemComponent,
-    PortalMainContentComponent
+    PortalMainContentComponent,
+    PortalFooterComponent
   ],
   imports: [
     BrowserModule,
