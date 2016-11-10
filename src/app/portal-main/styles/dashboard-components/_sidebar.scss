@@ -32,11 +32,11 @@ nav {
     }
 
     &.leftside-navigation .collapsible-body li.active {
-        background-color: $black_4;
+        background-color: $primary-color;
     }
 
     &.fixed.leftside-navigation .collapsible-body li.active {
-        background-color: $black_4;
+        background-color: $primary-color;
     }
 
     .collapsible-body li a {
@@ -59,7 +59,7 @@ ul.side-nav {
             display: block;
             height: 1px;
             border: 0;
-            border-top: 1px solid $color_bon_jour_approx;
+            border-top: 1px solid $primary-color;
             margin: 1em 0;
             padding: 0;
         }
@@ -69,11 +69,11 @@ ul.side-nav {
             background-color: $secondary-color-light;
 
             &:hover {
-                background-color: $black_4;
+                background-color: $primary-color;
             }
 
             &.active {
-                background-color: $black_4;
+                background-color: $primary-color;
             }
 
             a {
@@ -117,7 +117,7 @@ ul.side-nav {
             text-transform: capitalize;
             padding: 0;
             //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-            text-shadow: 1px 1px 1px $color_tundora_approx;
+            text-shadow: 1px 1px 1px $primary-color;
             font-size: 15px;
         }
 
@@ -174,11 +174,11 @@ ul.side-nav {
 .user-time {
     margin: 0;
     font-size: 13px;
-    color: $white;
+    color: white;
 }
 
 .user-initials {
-    color: $white;
+    color: white;
     font-weight: bold;
     line-height: 1.1;
     font-size: 14px;

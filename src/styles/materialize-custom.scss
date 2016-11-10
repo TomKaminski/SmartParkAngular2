@@ -1,19 +1,18 @@
 @charset "UTF-8";
 
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web);
 
 // Mixins
-@import "../../node_modules/materialize-css/sass/components/prefixer";
+//@import "../../node_modules/materialize-css/sass/components/prefixer";
 @import "../../node_modules/materialize-css/sass/components/mixins";
 @import "../../node_modules/materialize-css/sass/components/color";
 
 // Variables override;
-@import "theme-components/variables";
+@import "variables";
 
 // Reset
 @import "../../node_modules/materialize-css/sass/components/normalize";
-
-@import "themes/default/theme";
 
 // components
 @import "../../node_modules/materialize-css/sass/components/global";
@@ -21,7 +20,8 @@
 @import "../../node_modules/materialize-css/sass/components/grid";
 @import "../../node_modules/materialize-css/sass/components/navbar";
 //@import "components/roboto";
-//@import "components/typography";
+@import "typography";
+
 @import "../../node_modules/materialize-css/sass/components/cards";
 @import "../../node_modules/materialize-css/sass/components/toast";
 @import "../../node_modules/materialize-css/sass/components/tabs";

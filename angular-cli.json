@@ -18,8 +18,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "dashboard-styles/dashboard.scss",
-        "styles.scss"
+        "styles/materialize-custom.scss",
+        "styles/global.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
