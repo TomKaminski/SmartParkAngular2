@@ -22,9 +22,9 @@
           <br />
           <div class="row right-align margin-top-25">
             <div class="col s12">
-              <a href="#" class="smart-blue smart-move-btn" (click)="moveRegister()"><b>ZAREJESTRUJ</b></a>
-              <a href="#" class="smart-blue smart-move-btn" (click)="moveLogin()"><b>ZALOGUJ</b></a>
-              <button class="btn waves-effect waves-light smart-blue-bg smart-form-btn" [disabled]="!forgotForm.valid">
+              <a href="#" class="smart-blue smart-move-btn" (click)="moveRegister()" [ngClass]="{'disabled': visibleLoader}"><b>ZAREJESTRUJ</b></a>
+              <a href="#" class="smart-blue smart-move-btn" (click)="moveLogin()" [ngClass]="{'disabled': visibleLoader}"><b>ZALOGUJ</b></a>
+              <button class="btn waves-effect waves-light smart-blue-bg smart-form-btn" [disabled]="!forgotForm.valid || visibleLoader">
                 <b>Przypomnij hasło</b>
                 <i class="material-icons right">send</i>
               </button>

@@ -7,35 +7,39 @@ import { GlobalValidators } from '../common/global-validators'
   templateUrl: './account-forgot.component.html',
   styleUrls: ['./account-forgot.component.scss']
 })
-export class AccountForgotComponent{
+export class AccountForgotComponent {
   @Output() moveForgot = new EventEmitter();
-  visibleLoader : boolean;
+  visibleLoader: boolean;
 
-  forgotForm : FormGroup;
+  forgotForm: FormGroup;
 
   constructor(formBuilder: FormBuilder) {
     this.visibleLoader = false;
     this.forgotForm = formBuilder.group({
-      'email' : ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
+      'email': ['', Validators.compose([Validators.required, GlobalValidators.mailFormat])],
     })
   }
 
-  submitForm(value: any) : void{
+  submitForm(value: any): void {
     this.visibleLoader = !this.visibleLoader;
     console.log(this.visibleLoader);
     console.log('Reactive Forgot Form Data: ')
     console.log(value);
   }
 
-  moveLogin() : void{
-    this.moveForgot.emit({
-      value: window.innerWidth <= 992 ? 'login-mobile' : 'login'
-    })
+  moveLogin(): void {
+    if (!this.visibleLoader) {
+      this.moveForgot.emit({
+        value: window.innerWidth <= 992 ? 'login-mobile' : 'login'
+      })
+    }
   }
 
-  moveRegister() : void{
-    this.moveForgot.emit({
-      value: 'register'
-    })
+  moveRegister(): void {
+    if (!this.visibleLoader) {
+      this.moveForgot.emit({
+        value: 'register'
+      })
+    }
   }
 }

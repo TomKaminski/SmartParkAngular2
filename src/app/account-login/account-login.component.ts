@@ -41,14 +41,18 @@ export class AccountLoginComponent {
   }
 
   moveForgot(): void {
-    this.moveLogin.emit({
-      value: window.innerWidth <= 992 ? 'forgot-mobile' : 'forgot'
-    })
+    if (!this.visibleLoader) {
+      this.moveLogin.emit({
+        value: window.innerWidth <= 992 ? 'forgot-mobile' : 'forgot'
+      })
+    }
   }
 
   moveRegister(): void {
-    this.moveLogin.emit({
-      value: 'register'
-    })
+    if (!this.visibleLoader) {
+      this.moveLogin.emit({
+        value: 'register'
+      })
+    }
   }
 }
