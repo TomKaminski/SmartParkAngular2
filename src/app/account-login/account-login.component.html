@@ -32,7 +32,7 @@
           <br />
           <div class="row right-align" style="margin-bottom: 0">
             <div class="col s12">
-              <a href="#" id="moveRegister" class="smart-blue smart-move-btn" (click)="moveRegister()"><b>ZAREJESTRUJ</b></a>
+              <a href="#" class="smart-blue smart-move-btn" (click)="moveRegister()"><b>ZAREJESTRUJ</b></a>
               <button class="btn smart-blue-bg smart-form-btn btn waves-effect waves-light" [disabled]="!loginForm.valid || visibleLoader">
                 <b>Zaloguj</b>
                 <i class="material-icons right">send</i>
@@ -43,7 +43,7 @@
           </div>
           <div class="row right-align">
             <div class="col s12">
-              <a href="#" id="moveForgot" class="smart-blue smart-move-btn" (click)="moveForgot()">zapomniałem <b>hasło</b></a>
+              <a href="#" class="smart-blue smart-move-btn" (click)="moveForgot()">zapomniałem <b>hasło</b></a>
             </div>
           </div>
           <app-loader [hidden]="!visibleLoader"></app-loader>

@@ -1,15 +1,14 @@
 import { ToastHelper } from '../common/toast-helper';
 import { SmartparkApiService } from './../api/smartpark-api.service';
 import { SmartparkAuthService } from './../auth/smartpark-auth.service';
-import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidators } from '../common/global-validators'
 
 @Component({
   selector: 'app-account-register',
   templateUrl: './account-register.component.html',
-  styleUrls: ['./account-register.component.scss'],
-  encapsulation : ViewEncapsulation.None
+  styleUrls: ['./account-register.component.scss']
 })
 export class AccountRegisterComponent {
   @Output()  moveRegister = new EventEmitter();

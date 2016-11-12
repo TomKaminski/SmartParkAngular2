@@ -67,7 +67,7 @@ export class AccountComponent implements OnInit {
     onWindowLoadOrResize();
 
     function resizeContainer():void {
-      $(".main-container > .row").height($('.register-content > .row').height() + 80);
+      $(".main-container > .row").height($('.register-content > .row').height());
     }
 
     function setStatus():void {

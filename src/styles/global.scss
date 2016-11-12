@@ -1,3 +1,4 @@
+/*--Colors--*/
 .smart-blue {
   color: #4b85c5;
 }
@@ -9,9 +10,10 @@
 .smart-grey {
   color: #b0b0b0;
 }
+/*--End Colors--*/
 
+/*--Flex Align Helpers--*/
 @media(min-width: 600px) {
-
     .flex-align-center-container-mid-and-up {
         display: flex !important;
         align-items: center;
@@ -24,7 +26,9 @@
     align-items: center;
     justify-content: center;
 }
+/*--End Flex Align Helpers--*/
 
+/*--Margins and paddings--*/
 .margin-bottom-25 {
   margin-bottom: 25px !important;
 }
@@ -64,7 +68,9 @@ input.little-margin {
 .padding-bottom-20 {
     padding-bottom: 20px !important;
 }
+/*--End Margins and paddings--*/
 
+/*--Toasts styles--*/
 .toast-green {
     background: #66BB6A !important;
     cursor: default !important;
@@ -75,31 +81,13 @@ input.little-margin {
     cursor: default !important;
 }
 
-.system-overlay {
-  background-color: rgba(38,163,217,0.55);
-}
-
 .disabled{
   color:grey !important;
   cursor: default !important;
 }
+/*--End Toasts styles--*/
 
-
-.system-overlay, .home-overlay {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 0;
-}
-
-/*.home-overlay {
-  background-color: rgba(44, 62, 80, 0.3);
-  background-image: url("assets/img/pattern.png");
-  background-repeat: repeat;
-}*/
-
+/*--Inputs validation styles--*/
 input.ng-invalid.ng-touched, .input-validation-error{
   border-bottom: 1px solid red !important;
   box-shadow: 0 1px 0 0 red !important;
@@ -121,3 +109,9 @@ input.ng-valid.ng-touched {
     text-align: left !important;
   }
 }
+
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    margin: 0 0 15px 0;
+}
+/*--End Inputs validation styles--*/

@@ -2,15 +2,14 @@ import { Router } from '@angular/router';
 import { ToastHelper } from '../common/toast-helper';
 import { SmartparkApiService } from './../api/smartpark-api.service';
 import { SmartparkAuthService } from './../auth/smartpark-auth.service';
-import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidators } from '../common/global-validators'
 
 @Component({
   selector: 'app-account-login',
   templateUrl: './account-login.component.html',
-  styleUrls: ['./account-login.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./account-login.component.scss']
 })
 export class AccountLoginComponent {
   @Output() moveLogin = new EventEmitter();

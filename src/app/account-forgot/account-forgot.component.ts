@@ -1,12 +1,11 @@
-import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalValidators } from '../common/global-validators'
 
 @Component({
   selector: 'app-account-forgot',
   templateUrl: './account-forgot.component.html',
-  styleUrls: ['./account-forgot.component.scss'],
-  encapsulation : ViewEncapsulation.None
+  styleUrls: ['./account-forgot.component.scss']
 })
 export class AccountForgotComponent{
   @Output() moveForgot = new EventEmitter();
