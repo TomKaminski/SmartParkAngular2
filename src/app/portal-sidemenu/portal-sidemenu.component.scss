@@ -1,0 +1,14 @@
+$secondary-color-light: #4b85c5 !default;
+$primary-color: #132d4b !default;
+
+li {
+    line-height: 75px;
+    background-color: $secondary-color-light;
+    padding: 0; 
+    
+    &.nav-border {
+        border-bottom: 3px solid $primary-color;
+    }
+}
+
+    

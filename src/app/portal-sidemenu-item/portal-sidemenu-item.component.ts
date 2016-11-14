@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { SideMenuItem } from './../common/sidemenu-item';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-portal-sidemenu-item',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portal-sidemenu-item.component.scss']
 })
 export class PortalSidemenuItemComponent implements OnInit {
+  @Input() sideMenuItem : SideMenuItem;
 
   constructor() { }
 

@@ -1,3 +1,4 @@
+import { SideMenuItem } from './../common/sidemenu-item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortalSidemenuComponent implements OnInit {
 
-  constructor() { }
+  private sideMenuItems : SideMenuItem[];
+
+  constructor() { 
+    this.sideMenuItems = [
+      new SideMenuItem('home', 'Panel główny', 'home', false),
+      new SideMenuItem('trending_up', 'Statystyki', 'stats', false),
+      new SideMenuItem('shopping_cart', 'Sklep', 'shop', false),
+      new SideMenuItem('settings', 'Ustawienia', 'settings', false),
+      new SideMenuItem('message', 'Wiadomości', 'message', false)
+    ]
+  }
 
   ngOnInit() {
   }

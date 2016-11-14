@@ -1,3 +1,3 @@
-<p>
-  portal-sidemenu works!
-</p>
+<li class="bold nav-border" *ngFor="let sideMenuItem of sideMenuItems">
+  <app-portal-sidemenu-item [sideMenuItem]="sideMenuItem"></app-portal-sidemenu-item>
+</li>

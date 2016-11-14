@@ -1,0 +1,46 @@
+$secondary-color: #2e6cb2 !default;
+$primary-color: #132d4b !default;
+$secondary-color-light: #4b85c5 !default;
+
+ul.side-nav {
+    width: 240px;
+
+    &.shrinked{
+        width: 120px;
+    }
+
+    a {
+        line-height: 75px;
+        height: 75px;
+    }
+
+    &.leftside-navigation {
+        top: 64px;
+        overflow: hidden;
+        background-color: $secondary-color-light;
+
+        li {
+            > a > i {
+                line-height: inherit;
+                width: 2rem;
+                font-size: 3.5rem;
+                display: block;
+                float: left;
+                text-align: center;
+                margin-right: 3rem;
+            }
+
+            &.user-details {
+                background: $secondary-color;
+                padding: 15px 0;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+.sidebar-collapse {
+    position: absolute;
+    left: -170px;
+    top: -45px;
+}
