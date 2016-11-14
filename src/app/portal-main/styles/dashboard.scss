@@ -7,21 +7,11 @@
 
 // Components
 @import "dashboard-components/global";
-//@import "theme-components/typography";
-@import "dashboard-components/header";
 
 @import "dashboard-components/sidebar";
 
-@import "dashboard-components/breadcrumb";
 @import "dashboard-components/table";
 @import "dashboard-components/card";
-//@import "dashboard-components/chart";
-
-// Miscellaneous
-//@import "dashboard-components/miscellaneous";
 
 // Pages
 @import "dashboard-components/pages/email";
-
-// Footer
-@import "dashboard-components/footer"; 

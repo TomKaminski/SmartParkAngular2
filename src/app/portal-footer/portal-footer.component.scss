@@ -1,0 +1,14 @@
+footer{
+    width:100%;
+    position:fixed;
+    bottom:0;
+}
+.page-footer .container {
+	padding: 0 15px;
+}
+
+@media(max-width: 600px){
+    footer{
+        position: relative
+    }
+}

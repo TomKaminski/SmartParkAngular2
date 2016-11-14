@@ -1,0 +1,46 @@
+$secondary-color-light: #4b85c5 !default;
+$primary-color: #132d4b !default;
+
+#breadcrumbs-wrapper {
+    background: $secondary-color-light;
+}
+
+@media (min-width:1200px) {
+    #breadcrumbs-wrapper {
+        height: 124px;
+    }
+}
+
+@media (min-width: 968px) and (max-width:1201px){
+    #breadcrumbs-wrapper {
+        height: 127px;
+    }
+}
+
+.breadcrumbs {
+    padding: 0;
+    margin: 15px 0;
+    list-style: none;
+
+    > li {
+        display: inline-block;
+        font-size:1.2rem;
+        + li:before {
+            padding: 0 5px;
+            color: $primary-color;
+            content: "/\00a0";
+        }
+    }
+    
+
+    .active {
+        font-weight: normal;
+        color: white;
+    }
+}
+
+.breadcrumbs-title {
+    font-size: 1.5rem;
+    line-height: 1.804rem;
+    margin: 18px 0 0;
+}

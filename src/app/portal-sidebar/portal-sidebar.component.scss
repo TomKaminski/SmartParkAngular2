@@ -9,27 +9,12 @@ ul.side-nav {
         width: 120px;
     }
 
-    a {
-        line-height: 75px;
-        height: 75px;
-    }
-
     &.leftside-navigation {
         top: 64px;
         overflow: hidden;
         background-color: $secondary-color-light;
 
         li {
-            > a > i {
-                line-height: inherit;
-                width: 2rem;
-                font-size: 3.5rem;
-                display: block;
-                float: left;
-                text-align: center;
-                margin-right: 3rem;
-            }
-
             &.user-details {
                 background: $secondary-color;
                 padding: 15px 0;
