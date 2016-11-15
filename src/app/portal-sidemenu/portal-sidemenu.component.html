@@ -1,3 +1,3 @@
 <li class="bold nav-border" *ngFor="let sideMenuItem of sideMenuItems">
-  <app-portal-sidemenu-item [sideMenuItem]="sideMenuItem" (clicked)="portalChildRouteChanged($event);" [isActive]="activeRouteName == sideMenuItem.routeTargetName"></app-portal-sidemenu-item>
+  <app-portal-sidemenu-item [sideMenuItem]="sideMenuItem" [isActive]="activeRouteName == sideMenuItem.routeTargetName"></app-portal-sidemenu-item>
 </li>
