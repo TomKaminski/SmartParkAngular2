@@ -28,6 +28,15 @@ import { PortalSidemenuComponent } from './portal-sidemenu/portal-sidemenu.compo
 import { PortalSidemenuItemComponent } from './portal-sidemenu-item/portal-sidemenu-item.component';
 import { PortalMainContentComponent } from './portal-main-content/portal-main-content.component';
 import { PortalFooterComponent } from './portal-footer/portal-footer.component';
+import { PortalDashboardComponent } from './portal-dashboard/portal-dashboard.component';
+import { PortalStatisticsComponent } from './portal-statistics/portal-statistics.component';
+import { PortalShopComponent } from './portal-shop/portal-shop.component';
+import { PortalSettingsComponent } from './portal-settings/portal-settings.component';
+import { PortalMessagesComponent } from './portal-messages/portal-messages.component';
+import { PortalAdminUsersComponent } from './portal-admin-users/portal-admin-users.component';
+import { PortalAdminOrdersComponent } from './portal-admin-orders/portal-admin-orders.component';
+import { PortalAdminPricesComponent } from './portal-admin-prices/portal-admin-prices.component';
+import { PortalAdminGateusagesComponent } from './portal-admin-gateusages/portal-admin-gateusages.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +56,16 @@ import { PortalFooterComponent } from './portal-footer/portal-footer.component';
     PortalSidemenuComponent,
     PortalSidemenuItemComponent,
     PortalMainContentComponent,
-    PortalFooterComponent
+    PortalFooterComponent,
+    PortalDashboardComponent,
+    PortalStatisticsComponent,
+    PortalShopComponent,
+    PortalSettingsComponent,
+    PortalMessagesComponent,
+    PortalAdminUsersComponent,
+    PortalAdminOrdersComponent,
+    PortalAdminPricesComponent,
+    PortalAdminGateusagesComponent
   ],
   imports: [
     BrowserModule,
