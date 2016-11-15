@@ -26,6 +26,5 @@ export class PortalSidemenuComponent implements OnInit {
 
   portalChildRouteChanged(event) {
     this.activeRouteName = event.value;
-    console.log(this.activeRouteName);
   }
 }
