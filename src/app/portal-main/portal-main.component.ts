@@ -1,4 +1,3 @@
-import { SmartparkApiService } from '../api/smartpark-api.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -9,8 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class PortalMainComponent implements OnInit {
 
-  constructor(private apiService: SmartparkApiService) {
-    this.apiService.Get(this.apiService.ApiEndpoints.test, null, null)
+  constructor() {
   }
 
   ngOnInit() {
