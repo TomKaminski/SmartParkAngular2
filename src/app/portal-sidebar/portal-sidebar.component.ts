@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-portal-sidebar',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portal-sidebar.component.scss']
 })
 export class PortalSidebarComponent implements OnInit {
+  sidebarShrinked: boolean;
+  @Output() sidebarShrinkedToggled = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+    this.sidebarShrinked = false;
+  }
 
   ngOnInit() {
   }
 
+  sidebarToggleHandle() {
+    this.sidebarShrinked = !this.sidebarShrinked;
+    this.sidebarShrinkedToggled.emit({
+      shrinked: this.sidebarShrinked
+    });
+  }
 }

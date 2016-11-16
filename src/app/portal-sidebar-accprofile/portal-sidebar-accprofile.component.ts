@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-portal-sidebar-accprofile',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portal-sidebar-accprofile.component.scss']
 })
 export class PortalSidebarAccprofileComponent implements OnInit {
+  @Input() sidebarShrinked : boolean;
 
   constructor() { }
 

@@ -7,10 +7,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class PortalMainComponent implements OnInit {
-
+  sidebarShrinked: boolean;
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  onSidebarShrinked(event){
+    this.sidebarShrinked = event.shrinked;
   }
 }

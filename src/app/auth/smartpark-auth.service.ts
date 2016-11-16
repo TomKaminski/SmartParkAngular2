@@ -24,6 +24,12 @@ export class SmartparkAuthService implements ISmartparkAuthService {
   LoggedIn(): boolean {
     return tokenNotExpired();
   }
+
+  IsAdmin(): boolean {
+    var token = this.localStorage.get();
+    var decodedToken = this.jwtHelper.decodeToken(token);
+    return decodedToken.isAdmin == "True";
+  }
 }
 
 interface ISmartparkAuthService {
@@ -31,4 +37,5 @@ interface ISmartparkAuthService {
   Decode(): any;
   Save(token: string): boolean;
   LoggedIn(): boolean;
+  IsAdmin(): boolean;
 }

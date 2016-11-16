@@ -1,3 +1,11 @@
 .row {
     margin: 0;
 }
+
+.hide-on-shrinked {
+    display: none !important;
+}
+
+.expand-on-shrinked {
+    width: 100% !important;
+}

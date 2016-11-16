@@ -1,4 +1,4 @@
 <a class="waves-effect waves-cyan" [routerLink]="[sideMenuItem.routeTargetName]" [ngClass]="{'active': isActive}">
-    <i class="material-icons">{{sideMenuItem.iconName}}</i>
+    <i class="material-icons" [ngClass]="{'expand-on-shrinked': sidebarShrinked}">{{sideMenuItem.iconName}}</i>
     <span>{{sideMenuItem.displayText}}</span>
 </a>

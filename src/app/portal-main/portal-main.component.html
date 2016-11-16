@@ -1,9 +1,9 @@
 <app-portal-header></app-portal-header>
 
-<div id="main">
+<div id="main" [ngClass]="{'main-content-on-shrinked': sidebarShrinked}">
     <div class="wrapper">
-        
-        <app-portal-sidebar></app-portal-sidebar>
+
+        <app-portal-sidebar (sidebarShrinkedToggled)="onSidebarShrinked($event)"></app-portal-sidebar>
 
         <section id="content">
 

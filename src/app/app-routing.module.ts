@@ -1,3 +1,4 @@
+import { AdminAuthGuard } from './auth/admin-auth-guard.service';
 import { ReversedAuthGuard } from './auth/reversed-auth-guard.service';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { NgModule } from '@angular/core';
@@ -35,10 +36,10 @@ import { PortalAdminGateusagesComponent } from './portal-admin-gateusages/portal
                     { path: 'ustawienia', component: PortalSettingsComponent },
                     { path: 'wiadomosci', component: PortalMessagesComponent },
 
-                    { path: 'admin/uzytkownicy', component: PortalAdminUsersComponent },
-                    { path: 'admin/zamowienia', component: PortalAdminOrdersComponent },
-                    { path: 'admin/cennik', component: PortalAdminPricesComponent },
-                    { path: 'admin/wyjazdy', component: PortalAdminGateusagesComponent }
+                    { path: 'admin/uzytkownicy', component: PortalAdminUsersComponent, canActivate: [AdminAuthGuard] },
+                    { path: 'admin/zamowienia', component: PortalAdminOrdersComponent, canActivate: [AdminAuthGuard] },
+                    { path: 'admin/cennik', component: PortalAdminPricesComponent, canActivate: [AdminAuthGuard] },
+                    { path: 'admin/wyjazdy', component: PortalAdminGateusagesComponent, canActivate: [AdminAuthGuard] }
                 ]
             },
             {
@@ -67,7 +68,7 @@ import { PortalAdminGateusagesComponent } from './portal-admin-gateusages/portal
         RouterModule
     ],
     providers: [
-        AuthGuard, ReversedAuthGuard
+        AuthGuard, ReversedAuthGuard, AdminAuthGuard
     ]
 })
 export class AppRoutingModule { }
